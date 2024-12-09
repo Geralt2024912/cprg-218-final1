@@ -8,3 +8,6 @@ reading: <a href="https://www.flaticon.com/free-icons/read" title="read icons">R
 writing: <a href="https://www.flaticon.com/free-icons/write" title="write icons">Write icons created by Freepik - Flaticon</a>
 listening: <a href="https://www.flaticon.com/free-icons/listen" title="listen icons">Listen icons created by Eucalyp - Flaticon</a>
 google-translate: https://localo.com/marketing-dictionary/what-is-google-translate
+idiom: <a href="https://www.flaticon.com/free-icons/languages" title="languages icons">Languages icons created by Freepik - Flaticon</a>
+check-in: <a href="https://www.flaticon.com/free-icons/time-and-date" title="time and date icons">Time and date icons created by IconMarketPK - Flaticon</a>
+latest-test: <a href="https://www.flaticon.com/free-icons/information" title="information icons">Information icons created by Freepik - Flaticon</a>
