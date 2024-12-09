@@ -380,3 +380,15 @@ footer {
 .contact-info p {
     color: #6e6e73;
 }
+
+.translate-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.translate-icon {
+    width: 160px;
+    height: auto;
+    object-fit: contain;
+}
