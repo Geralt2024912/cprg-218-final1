@@ -1,21 +1,29 @@
-/* Reset and base styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
 body {
     background-color: #f5f5f7;
     color: #1d1d1f;
     line-height: 1.5;
+    font-size: var(--base-font-size);
+    padding-top: clamp(4rem, 10vw, 6rem);
 }
 
-/* Navigation styling */
+:root {
+    --base-font-size: clamp(16px, 1vw + 14px, 20px);
+    --h1-size: clamp(2rem, 3vw + 1rem, 3.5rem);
+    --h2-size: clamp(1.5rem, 2vw + 1rem, 2.5rem);
+    --h3-size: clamp(1.2rem, 1.5vw + 0.8rem, 2rem);
+    --spacing-unit: clamp(0.5rem, 1vw, 2rem);
+}
+
 nav {
     background-color: #2c3e50;
-    padding: 1rem 2rem;
+    padding: var(--spacing-unit);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -25,11 +33,13 @@ nav {
     left: 0;
     right: 0;
     z-index: 1000;
+    height: auto;
+    min-height: 4rem;
 }
 
 .brand {
     color: white;
-    font-size: 2.25rem;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
     font-weight: 600;
     display: flex;
     align-items: center;
@@ -40,35 +50,80 @@ nav {
 }
 
 .brand-icon {
-    height: 2.7rem;
-    width: 2.7rem;
+    height: clamp(2rem, 4vw, 2.7rem);
+    width: clamp(2rem, 4vw, 2.7rem);
     object-fit: contain;
 }
 
 .nav-buttons {
     margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-unit);
+    list-style: none;
 }
 
 .nav-buttons a {
     text-decoration: none;
+    color: white;
+}
+
+.nav-buttons a:hover {
+    color: white;
 }
 
 .nav-buttons button {
     background: transparent;
-    border: none;
+    border: 2px solid white;
     color: white;
-    padding: 0.5rem 1rem;
-    margin-left: 1rem;
-    font-size: 1rem;
+    padding: clamp(0.4rem, 1vw, 0.6rem) clamp(0.8rem, 2vw, 1.2rem);
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
     cursor: pointer;
-    transition: opacity 0.2s;
+    transition: all 0.2s;
+    border-radius: 6px;
 }
 
 .nav-buttons button:hover {
-    opacity: 0.8;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    opacity: 1;
 }
 
-/* Main content styling */
+@media (max-width: 768px) {
+    .nav-buttons {
+        position: fixed;
+        top: 4rem;
+        left: 0;
+        right: 0;
+        background: #2c3e50;
+        flex-direction: column;
+        padding: 1rem;
+        transform: translateY(-150%);
+        transition: transform 0.3s ease;
+        align-items: flex-end;
+        padding-right: 2rem;
+    }
+
+    .nav-buttons.active {
+        transform: translateY(0);
+    }
+
+    .nav-buttons li {
+        width: auto;
+        text-align: right;
+    }
+
+    .nav-buttons a {
+        padding: 0.8rem 0;
+        display: block;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
 .main-content {
     max-width: 1000px;
     margin: 6rem auto 2rem;
@@ -92,6 +147,7 @@ nav {
     background-color: #f5f5f7;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-size: 1rem;
+    margin-top: 1rem;
 }
 
 .daily-idiom,
@@ -162,7 +218,100 @@ h3 {
     color: #0077ed;
 }
 
-/* Footer styling */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: var(--spacing-unit);
+    padding: var(--spacing-unit);
+}
+
+.section-card,
+.dictionary-search,
+.daily-idiom,
+.checkin-section,
+.test-outline {
+    padding: clamp(1rem, 3vw, 2rem);
+    margin-bottom: clamp(1rem, 3vw, 2rem);
+}
+
+input,
+textarea,
+button {
+    font-size: clamp(14px, 1vw + 12px, 18px);
+    padding: clamp(0.5rem, 1vw, 1rem);
+}
+
+.checkin-section form {
+    gap: var(--spacing-unit);
+}
+
+@media (max-width: 480px) {
+    .checkin-section form,
+    .answer-options {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .answer-btn,
+    .submit-btn {
+        width: 100%;
+    }
+}
+
+.practice-content {
+    padding: var(--spacing-unit);
+}
+
+.audio-player {
+    width: 100%;
+    margin: var(--spacing-unit) 0;
+}
+
+.writing-area {
+    width: 100%;
+    min-height: clamp(150px, 30vh, 300px);
+}
+
+.contact-info {
+    padding: var(--spacing-unit);
+}
+
+@media (min-width: 1920px) {
+    .main-content {
+        max-width: 80%;
+        margin: 6rem auto 2rem;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 2560px) {
+    :root {
+        --base-font-size: clamp(18px, 1vw + 16px, 24px);
+    }
+
+    .main-content {
+        max-width: 70%;
+    }
+}
+
+@media (max-width: 320px) {
+    :root {
+        --base-font-size: 14px;
+    }
+
+    .brand {
+        font-size: 1.2rem;
+    }
+
+    .section-icon {
+        width: 24px;
+        height: 24px;
+    }
+}
+
 footer {
     background-color: #2c3e50;
     color: white;
@@ -171,7 +320,6 @@ footer {
     width: 100%;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .checkin-section form {
         flex-direction: column;
@@ -187,24 +335,30 @@ footer {
     }
 }
 
-.translate-container {
+.translate-header {
     display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 1rem;
 }
 
-.translate-container select {
-    padding: 1rem;
-    border: none;
-    border-radius: 8px;
-    background-color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-size: 1rem;
+.translate-icon {
+    width: 150px;
+    height: 90px;
+}
+
+.translate-container {
+    display: flex;
+    margin-top: 1rem;
 }
 
 .translate-container input {
-    flex: 1;
-    min-width: 200px;
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #f5f5f7;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
 }
 
 #translateBtn {
@@ -212,9 +366,10 @@ footer {
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.2s;
+    font-size: 1rem;
 }
 
 #translateBtn:hover {
@@ -222,15 +377,24 @@ footer {
 }
 
 .translation-result {
-    background-color: #f5f5f7;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    min-height: 3rem;
     margin-top: 1rem;
+    padding: 1rem;
+    background-color: #f5f5f7;
+    border-radius: 8px;
+    min-height: 3rem;
+    font-size: 1rem;
 }
 
-/* Style Google Translate Widget */
+@media (max-width: 480px) {
+    .translate-container {
+        flex-direction: column;
+    }
+
+    #translateBtn {
+        width: 100%;
+    }
+}
+
 .goog-te-combo {
     padding: 0.5rem;
     border-radius: 6px;
@@ -239,7 +403,26 @@ footer {
     width: 200px;
 }
 
-/* Practice Page Styles */
+.goog-te-gadget {
+    display: none !important;
+}
+
+.skiptranslate {
+    display: none !important;
+}
+
+.goog-te-banner-frame {
+    display: none !important;
+}
+
+#google_translate_element {
+    display: none !important;
+}
+
+body {
+    top: 0 !important;
+}
+
 .section-card {
     background-color: white;
     padding: 2rem;
@@ -343,12 +526,10 @@ footer {
     object-fit: contain;
 }
 
-/* Update existing h2 style in section-header */
 .section-header h2 {
     margin-bottom: 0;
 }
 
-/* About Page Styles */
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -381,14 +562,243 @@ footer {
     color: #6e6e73;
 }
 
-.translate-header {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1.5rem;
+.checkin-status {
+    margin-top: 1rem;
+    font-weight: 500;
 }
 
-.translate-icon {
-    width: 160px;
+.checkin-status .error {
+    color: #ff3b30;
+}
+
+.checkin-streak {
+    margin-top: 0.5rem;
+    color: #ff9500;
+    font-weight: 500;
+}
+
+#checkinName {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d2d2d7;
+    border-radius: 6px;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+#checkinForm {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+@media (min-width: 768px) {
+    #checkinForm {
+        flex-direction: row;
+    }
+
+    #checkinName {
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .brand {
+        font-size: 1.5rem;
+    }
+
+    .nav-buttons {
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .nav-buttons button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .main-content {
+        padding: 0 0.5rem;
+        margin-top: 4rem;
+    }
+
+    .section-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .translate-icon {
+        width: 120px;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .main-content {
+        max-width: 1400px;
+    }
+
+    body {
+        font-size: 18px;
+    }
+
+    .section-card {
+        padding: 3rem;
+    }
+}
+
+@media screen and (min-width: 2560px) {
+    .main-content {
+        max-width: 1800px;
+    }
+
+    body {
+        font-size: 20px;
+    }
+}
+
+.practice-video {
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
     height: auto;
-    object-fit: contain;
+}
+
+@media screen and (max-width: 480px) {
+    nav {
+        padding: 0.75rem 1rem;
+    }
+
+    .brand {
+        position: static;
+        transform: none;
+        font-size: 1.2rem;
+    }
+
+    .nav-buttons {
+        gap: 0.5rem;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .brand {
+        position: static;
+        transform: none;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    nav {
+        padding: 1rem 1.5rem;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    nav {
+        padding: 1.5rem 3rem;
+    }
+
+    .brand-icon {
+        height: 3rem;
+        width: 3rem;
+    }
+}
+
+@media screen and (min-width: 2560px) {
+    nav {
+        padding: 2rem 4rem;
+    }
+
+    .brand {
+        font-size: 3rem;
+    }
+
+    .brand-icon {
+        height: 4rem;
+        width: 4rem;
+    }
+
+    .nav-buttons button {
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+    }
+}
+
+.hamburger {
+    display: none;
+    font-size: 2.5rem;
+    color: white;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    padding: 0.5rem;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.nav-buttons {
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(0.5rem, 2vw, 2rem);
+}
+
+.nav-buttons ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: inherit;
+}
+
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .brand {
+        margin-right: 3rem;
+    }
+
+    .nav-buttons {
+        display: none;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #2c3e50;
+        padding: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-buttons.active {
+        display: block;
+    }
+
+    .nav-buttons ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-buttons button {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hamburger {
+        font-size: 2rem;
+        right: 0.5rem;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .hamburger {
+        display: none;
+    }
 }

@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Practice - IELTS Master</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
     <link rel="icon" type="image/png" href="/images/favicon.png">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
@@ -12,74 +15,74 @@
 
 <body>
     <nav>
-        <div class="brand">
+        <header class="brand">
             <img src="/images/favicon.png" alt="IELTS Master Logo" class="brand-icon">
             IELTS Master
-        </div>
-        <div class="nav-buttons">
-            <a href="index.html"><button>Home</button></a>
-            <a href="practice.html"><button>Practice</button></a>
-            <a href="about.html"><button>About Us</button></a>
-        </div>
+        </header>
+        <ul class="nav-buttons">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="practice.html">Practice</a></li>
+            <li><a href="about.html">About Us</a></li>
+        </ul>
     </nav>
 
-    <div class="main-content">
-        <div class="section-card" id="reading-practice">
-            <div class="section-header">
+    <main class="main-content">
+        <section class="section-card" id="reading-practice">
+            <header class="section-header">
                 <img src="/images/book.png" alt="Reading Icon" class="section-icon">
                 <h2>Reading Practice</h2>
-            </div>
-            <div class="practice-content">
+            </header>
+            <article class="practice-content">
                 <p>Read the following passage and answer the question:</p>
-                <div class="passage-text">
+                <article class="passage-text">
                     <p>The Great Barrier Reef, off the coast of Australia, is the world's largest coral reef system.
                         Composed of over 2,900 individual reefs and 900 islands stretching for over 2,300 kilometres,
                         the reef was selected as a World Heritage Site in 1981. However, in recent years, the reef has
                         been under severe threat from climate change, ocean acidification, and coral bleaching events.
                     </p>
-                </div>
-                <div class="practice-question">
+                </article>
+                <section class="practice-question">
                     <h3>Question:</h3>
                     <p>What is the main threat to the Great Barrier Reef according to the passage?</p>
-                    <div class="answer-options">
+                    <form class="answer-options">
                         <button class="answer-btn">Tourism</button>
                         <button class="answer-btn">Overfishing</button>
                         <button class="answer-btn correct">Climate change and coral bleaching</button>
                         <button class="answer-btn">Industrial pollution</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+                    </form>
+                </section>
+            </article>
+        </section>
 
-        <div class="section-card" id="listening-practice">
-            <div class="section-header">
+        <section class="section-card" id="listening-practice">
+            <header class="section-header">
                 <img src="/images/listening.png" alt="Listening Icon" class="section-icon">
                 <h2>Listening Practice</h2>
-            </div>
+            </header>
             <div class="practice-content">
                 <p>Listen to the audio and answer the questions below:</p>
                 <audio controls class="audio-player">
 
 
                 </audio>
-                <div class="practice-question">
+                <section class="practice-question">
                     <h3>Question:</h3>
                     <p>What is the main topic of the conversation?</p>
-                    <div class="answer-options">
+                    <form class="answer-options">
                         <button class="answer-btn correct">University accommodation</button>
                         <button class="answer-btn">Course registration</button>
                         <button class="answer-btn">Library services</button>
                         <button class="answer-btn">Campus facilities</button>
-                    </div>
-                </div>
+                    </form>
+                </section>
             </div>
-        </div>
+        </section>
 
-        <div class="section-card" id="writing-practice">
-            <div class="section-header">
+        <section class="section-card" id="writing-practice">
+            <header class="section-header">
                 <img src="/images/read.png" alt="Writing Icon" class="section-icon">
                 <h2>Writing Practice</h2>
-            </div>
+            </header>
             <div class="practice-content">
                 <p>The graph below shows the percentage of international students in different faculties at a university
                     in 2020.</p>
@@ -87,8 +90,8 @@
                 <div class="word-counter">Words: 0</div>
                 <button class="submit-btn">Submit Response</button>
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
 
     <footer>
         <p>© 2024 IELTS Master. All rights reserved.</p>

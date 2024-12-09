@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IELTS Master - Your Path to Success</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
     <link rel="icon" type="image/png" href="/images/favicon.png">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
@@ -12,81 +15,72 @@
 
 <body>
     <nav>
-        <div class="brand">
+        <header class="brand">
             <img src="/images/favicon.png" alt="IELTS Master Logo" class="brand-icon">
             IELTS Master
-        </div>
-        <div class="nav-buttons">
-            <a href="index.html"><button>Home</button></a>
-            <a href="practice.html"><button>Practice</button></a>
-            <a href="about.html"><button>About Us</button></a>
-        </div>
+        </header>
+        <ul class="nav-buttons">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="practice.html">Practice</a></li>
+            <li><a href="about.html">About Us</a></li>
+        </ul>
     </nav>
 
-    <div class="main-content">
-        <div class="dictionary-search">
-            <div class="translate-header">
+    <main class="main-content">
+        <section class="dictionary-search">
+            <header class="translate-header">
                 <img src="/images/google-translate.webp" alt="Google Translate" class="translate-icon">
+            </header>
+            <div class="translate-container">
+                <input type="text" id="textToTranslate" placeholder="Enter text to translate...">
             </div>
-            <input type="text" id="textToTranslate" placeholder="Enter text to translate...">
             <div id="translationResult" class="translation-result"></div>
-        </div>
+        </section>
 
-        <div class="daily-idiom">
-            <div class="section-header">
+        <article class="daily-idiom">
+            <header class="section-header">
                 <img src="/images/idiom.png" alt="Daily Idiom Icon" class="section-icon">
                 <h2>Daily Idiom</h2>
-            </div>
+            </header>
             <h3>What goes around comes around</h3>
             <p>Meaning: The consequences of one's actions will have to be dealt with eventually</p>
             <p>Example: Don't worry about his bad behavior towards you. What goes around comes around, and he'll face
                 the
                 consequences of his actions eventually.</p>
-        </div>
+        </article>
 
-        <div class="checkin-section">
-            <div class="section-header">
+        <section class="checkin-section">
+            <header class="section-header">
                 <img src="/images/check-in.png" alt="Check-in Icon" class="section-icon">
                 <h2>Daily Check-in</h2>
-            </div>
-            <form>
-                <input type="text" placeholder="Enter your name">
+            </header>
+            <form id="checkinForm" onsubmit="handleCheckIn(event)">
+                <input type="text" placeholder="Enter your name" id="checkinName" required>
                 <button type="submit">Check In</button>
             </form>
-        </div>
+            <output id="checkinStatus" class="checkin-status"></output>
+            <output id="checkinStreak" class="checkin-streak"></output>
+        </section>
 
-        <div class="test-outline">
-            <div class="section-header">
+        <section class="test-outline">
+            <header class="section-header">
                 <img src="/images/latesttest.png" alt="Latest Test Icon" class="section-icon">
                 <h2>Latest IELTS Test Overview</h2>
-            </div>
+            </header>
             <ul>
                 <li><a href="practice.html#listening-practice">March 2024 IELTS Listening Test Analysis →</a></li>
                 <li><a href="practice.html#reading-practice">March 2024 IELTS Reading Test Analysis →</a></li>
                 <li><a href="practice.html#writing-practice">March 2024 IELTS Writing Test Analysis →</a></li>
                 <li><a href="#">March 2024 IELTS Speaking Test Analysis →</a></li>
             </ul>
-        </div>
-    </div>
+        </section>
+    </main>
 
     <footer>
-        <p>© 2024 IELTS Master. All rights reserved.</p>
+        <p> 2024 IELTS Master. All rights reserved.</p>
     </footer>
 
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement(
-                {
-                    pageLanguage: 'en',
-                    includedLanguages: 'zh-CN,en', // Add more languages by comma-separating them
-                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-                },
-                'google_translate_element'
-            );
-        }
-    </script>
-    <script type="text/javascript"
-        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+   
 </body>
 
 </html>
